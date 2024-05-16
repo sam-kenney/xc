@@ -64,7 +64,11 @@ func getRates(resp http.Response) (*map[string]float64, error) {
 	if err != nil {
 		return nil, err
 	}
-	json.Unmarshal(body, &data)
+
+	err = json.Unmarshal(body, &data)
+	if err != nil {
+		return nil, err
+	}
 
 	if data.IsError() {
 		return nil, errors.New(fmt.Sprintf("Error: %s", *data.ErrorType))
