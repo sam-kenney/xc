@@ -15,5 +15,14 @@ xc 150 AUD --to USD
 ## Installation
 
 ```sh
+git clone git@github.com:sam-kenney/xc.git
+make install
+```
 
+## Build
+
+```sh
+git clone git@github.com:sam-kenney/xc.git
+make build
+bin/xc 150 AUD --to USD
 ```
