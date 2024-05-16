@@ -11,6 +11,7 @@ import (
 	"sam.kenney.blog/xc/models"
 )
 
+// Display the converted rate for the given quantity and currencies.
 func Get(xc models.Xc, apiKey string) error {
 	if apiKey == "" {
 		return errors.New("Exchange API key not built into bin")
@@ -43,6 +44,7 @@ func Get(xc models.Xc, apiKey string) error {
 	return nil
 }
 
+// Make the request to the API.
 func request(from string, apiKey string) (*http.Response, error) {
 	url := fmt.Sprintf("https://v6.exchangerate-api.com/v6/%s/latest/%s", apiKey, from)
 
@@ -54,6 +56,7 @@ func request(from string, apiKey string) (*http.Response, error) {
 	return resp, nil
 }
 
+// Return the map of currencies to exchange rates from a response body.
 func getRates(resp http.Response) (*map[string]float64, error) {
 	data := Response{}
 
