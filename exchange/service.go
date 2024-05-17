@@ -29,7 +29,7 @@ func Get(xc models.Xc, apiKey string) error {
 
 	res, err := getRates(*resp)
 	if err != nil {
-		return nil
+		return err
 	}
 
 	rates := *res
